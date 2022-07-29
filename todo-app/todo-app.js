@@ -1,39 +1,8 @@
-const todos = [
-  { text: "walk the dog", completed: true },
-  { text: "feed the cat", completed: false },
-  { text: "buy groceries", completed: true },
-  { text: "go to the gym", completed: false },
-  { text: "learn javascript", completed: false },
-];
+let todos = getSavedTodos();
 
 const filters = {
   searchText: "",
   hideCompleted: false,
-};
-
-const rendeTodo = function (todos, filters) {
-  const filtertodos = todos.filter(function (note) {
-    return (
-      note.text.toLowerCase().includes(filters.searchText.toLowerCase()) &&
-      (!filters.hideCompleted || !note.completed)
-    );
-  });
-
-  document.querySelector("#todo-list").innerHTML = "";
-
-  const incompleteTodos = filtertodos.filter(function (todo) {
-    return !todo.completed;
-  });
-
-  const summary = document.createElement("h2");
-  summary.textContent = `You have ${incompleteTodos.length} todos left`;
-  document.querySelector("#todo-list").appendChild(summary);
-
-  filtertodos.forEach(function (todo) {
-    const newParagraph = document.createElement("p");
-    newParagraph.textContent = todo.text;
-    document.querySelector("#todo-list").appendChild(newParagraph);
-  });
 };
 
 rendeTodo(todos, filters);
@@ -50,10 +19,11 @@ document
     const newTodo = e.target.elements.newTodo.value;
     e.target.elements.newTodo.value = "";
     todos.push({
+      id: uuidv4(),
       text: newTodo,
       completed: false,
     });
-
+    saveTodos(todos);
     rendeTodo(todos, filters);
   });
 
@@ -63,6 +33,14 @@ document
     filters.hideCompleted = e.target.checked;
     rendeTodo(todos, filters);
   });
+
+// const todos = [
+//   { text: "walk the dog", completed: true },
+//   { text: "feed the cat", completed: false },
+//   { text: "buy groceries", completed: true },
+//   { text: "go to the gym", completed: false },
+//   { text: "learn javascript", completed: false },
+// ];
 
 // document.querySelector("#add-todo").addEventListener("click", function (e) {
 //   console.log("adding note ..");
