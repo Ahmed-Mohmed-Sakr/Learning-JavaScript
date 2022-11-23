@@ -1,4 +1,8 @@
-const gradeCalculator = function (score, totalScore) {
+const gradeCalculator = (score, totalScore) => {
+  if (typeof score !== "number" || typeof totalScore !== "number") {
+    throw Error("Arguments must be numbers");
+  }
+
   const grade = (score / totalScore) * 100;
   let letterGrade = "";
 
@@ -17,5 +21,9 @@ const gradeCalculator = function (score, totalScore) {
   return `You got an ${letterGrade} (${grade}%)!`;
 };
 
-const studentOne = gradeCalculator(19, 20);
-console.log(studentOne);
+try {
+  const studentOne = gradeCalculator(19.5, 20);
+  console.log(studentOne);
+} catch (e) {
+  console.log(e.message);
+}
