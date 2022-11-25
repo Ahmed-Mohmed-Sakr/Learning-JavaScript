@@ -1,6 +1,6 @@
 // prototypal Inheritance
 
-class PersonClass {
+class Person {
   constructor(firstName, lastName, age, likes = []) {
     this.firstName = firstName;
     this.lastName = lastName;
@@ -25,8 +25,12 @@ class PersonClass {
   }
 }
 
-const myPerson = new PersonClass("ahmed", "sakr", 21, ["chess"]);
-console.log(myPerson.getBio());
+const me = new Person("ahmed", "sakr", 21, ["learning", "chess"]);
+me.setName("abd-allah sakr");
+console.log(me.getBio());
+
+const person2 = new Person("zainb", "sakr", 21, []);
+console.log(person2.getBio());
 
 // const Person = function (firstName, lastName, age, likes = []) {
 //   this.firstName = firstName;
