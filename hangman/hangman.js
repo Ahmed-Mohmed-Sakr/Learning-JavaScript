@@ -16,19 +16,6 @@ class Hangman {
     else this.status = "playing";
   }
 
-  getPuzzel() {
-    let puzzel = "";
-
-    this.word.forEach((letter) => {
-      if (this.gussedLetters.includes(letter) || letter === " ") {
-        puzzel += letter;
-      } else {
-        puzzel += "*";
-      }
-    });
-    return puzzel;
-  }
-
   makeGuess(guess) {
     if (this.status != "playing") return;
 
@@ -55,5 +42,18 @@ class Hangman {
     } else {
       return `Nice try! The word was "${this.word.join("")}"`;
     }
+  }
+
+  getPuzzel() {
+    let puzzel = "";
+
+    this.word.forEach((letter) => {
+      if (this.gussedLetters.includes(letter) || letter === " ") {
+        puzzel += letter;
+      } else {
+        puzzel += "*";
+      }
+    });
+    return puzzel;
   }
 }
