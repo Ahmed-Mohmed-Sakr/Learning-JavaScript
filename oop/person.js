@@ -1,5 +1,7 @@
 // prototypal Inheritance
 
+// myPerson --> Person.prototype --> Object.prototype --> null
+
 class Person {
   constructor(firstName, lastName, age, likes = []) {
     this.firstName = firstName;
@@ -25,40 +27,38 @@ class Person {
   }
 }
 
-const me = new Person("ahmed", "sakr", 21, ["learning", "chess"]);
-me.setName("abd-allah sakr");
-console.log(me.getBio());
+class Employee extends Person {
+  constructor(firstName, lastName, age, position, likes = []) {
+    super(firstName, lastName, age, likes);
+    this.position = position;
+  }
 
-const person2 = new Person("zainb", "sakr", 21, []);
-console.log(person2.getBio());
+  getBio() {
+    return `${this.firstName} ${this.lastName} is a/an ${this.position}`;
+  }
 
-// const Person = function (firstName, lastName, age, likes = []) {
-//   this.firstName = firstName;
-//   this.lastName = lastName;
-//   this.age = age;
-//   this.likes = likes;
-// };
+  getYearsLeft() {
+    return 65 - this.age;
+  }
+}
 
-// Person.prototype.getBio = function () {
-//   let bio = `${this.firstName} is ${this.age}.`;
+class Student extends Person {
+  constructor(firstName, lastName, age, grade, likes = []) {
+    super(firstName, lastName, age, likes);
+    this.grade = grade;
+  }
 
-//   this.likes.forEach((like) => {
-//     bio += ` ${this.firstName} likes ${like}.`;
-//   });
+  getBio() {
+    const status = this.grade >= 70 ? "passing" : "failing";
+    return `${this.firstName} is ${status} the class`;
+  }
 
-//   return bio;
-// };
+  updateGrade(change) {
+    this.grade += change;
+  }
+}
 
-// Person.prototype.setName = function (fullname) {
-//   const names = fullname.split(" ");
-//   this.firstName = names[0];
-//   this.lastName = names[1];
-// };
-
-// const me = new Person("ahmed", "sakr", 21, ["learning", "chess"]);
-
-// me.setName("nader tamer");
-// console.log(me.getBio());
-
-// const person2 = new Person("zainb", "sakr", 21, []);
-// console.log(person2.getBio());
+const student = new Student("ahmed", "sakr", 21, 60, ["chess"]);
+console.log(student.getBio());
+student.updateGrade(10);
+console.log(student.getBio());
