@@ -9,7 +9,7 @@
 
 const puzzelEl = document.querySelector("#puzzel");
 const guessesEl = document.querySelector("#guesses");
-const game1 = new Hangman("cat", 2);
+const game1 = new Hangman("car park", 2);
 
 puzzelEl.textContent = game1.puzzel;
 guessesEl.textContent = game1.statusMessage;

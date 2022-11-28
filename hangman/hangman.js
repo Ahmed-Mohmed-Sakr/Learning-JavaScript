@@ -8,7 +8,7 @@ class Hangman {
 
   calcStatus() {
     const finished = this.word.every((letter) => {
-      return this.gussedLetters.includes(letter);
+      return this.gussedLetters.includes(letter) || letter === " ";
     });
 
     if (this.remainingGuesses === 0) this.status = "faild";
