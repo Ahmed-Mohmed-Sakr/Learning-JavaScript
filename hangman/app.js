@@ -17,23 +17,35 @@ window.addEventListener("keypress", (e) => {
 });
 
 // asyc
-getPuzzle("2").then(
-  (puzzel) => {
-    console.log(puzzel);
-  },
-  (err) => {
+getPuzzle("2")
+  .then((puzzle) => {
+    console.log(puzzle);
+  })
+  .catch((err) => {
     console.log(`Error: ${err}`);
-  }
-);
-
-console.log("do some thing");
+  });
 
 //////
-getContryName("EG").then(
-  (contryName) => {
+getContryName("EG")
+  .then((contryName) => {
     console.log(contryName);
-  },
-  (err) => {
-    console.log(`Error: ${err}`);
-  }
-);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+
+///////////
+// fetch("https://puzzle.mead.io/puzzle", {})
+//   .then((respose) => {
+//     if (respose.status === 200) {
+//       return respose.json();
+//     } else {
+//       throw new Error("Unable to fetch the puzzel");
+//     }
+//   })
+//   .then((data) => {
+//     console.log(data.puzzle);
+//   })
+//   .catch((err) => {
+//     console.log(err);
+//   });
