@@ -17,21 +17,24 @@ window.addEventListener("keypress", (e) => {
 });
 
 // asyc
-getPuzzle("4", (error, puzzel) => {
-  if (error) {
-    console.log(error);
-  } else {
+getPuzzle("2").then(
+  (puzzel) => {
     console.log(puzzel);
+  },
+  (err) => {
+    console.log(`Error: ${err}`);
   }
-});
+);
+
 console.log("do some thing");
 
 //////
 const contryCode = "EG";
-getContryName(contryCode, (error, countryName) => {
-  if (error) {
-    console.log(error);
-  } else {
-    console.log(countryName);
+getContryName(contryCode).then(
+  (contryName) => {
+    console.log(contryName);
+  },
+  (err) => {
+    console.log(`Error: ${err}`);
   }
-});
+);
