@@ -25,27 +25,13 @@ getPuzzle("2")
     console.log(`Error: ${err}`);
   });
 
-//////
-getContryName("EG")
+getLocation()
+  .then((location) => {
+    return getContryName(location.country);
+  })
   .then((contryName) => {
     console.log(contryName);
   })
   .catch((err) => {
     console.log(err);
   });
-
-///////////
-// fetch("https://puzzle.mead.io/puzzle", {})
-//   .then((respose) => {
-//     if (respose.status === 200) {
-//       return respose.json();
-//     } else {
-//       throw new Error("Unable to fetch the puzzel");
-//     }
-//   })
-//   .then((data) => {
-//     console.log(data.puzzle);
-//   })
-//   .catch((err) => {
-//     console.log(err);
-//   });
