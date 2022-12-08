@@ -29,8 +29,7 @@ getPuzzle("2").then(
 console.log("do some thing");
 
 //////
-const contryCode = "EG";
-getContryName(contryCode).then(
+getContryName("EG").then(
   (contryName) => {
     console.log(contryName);
   },
