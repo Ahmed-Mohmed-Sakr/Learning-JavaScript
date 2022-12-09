@@ -36,7 +36,5 @@ const getLocation = async () => {
 
 const getCurrentCountry = async () => {
   const location = await getLocation();
-  const country = await getContryName(location.country);
-
-  return country;
+  return getContryName(location.country);
 };
