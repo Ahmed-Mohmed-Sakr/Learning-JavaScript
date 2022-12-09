@@ -25,13 +25,21 @@ getPuzzle("2")
     console.log(`Error: ${err}`);
   });
 
-getLocation()
-  .then((location) => {
-    return getContryName(location.country);
-  })
-  .then((contryName) => {
-    console.log(contryName);
+getCurrentCountry()
+  .then((country) => {
+    console.log(country.name);
   })
   .catch((err) => {
     console.log(err);
   });
+
+// getLocation()
+//   .then((location) => {
+//     return getContryName(location.country);
+//   })
+//   .then((country) => {
+//     console.log(country.name);
+//   })
+//   .catch((err) => {
+//     console.log(err);
+//   });

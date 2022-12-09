@@ -11,28 +11,13 @@ const getPuzzle = async (wordCount) => {
   }
 };
 
-const getPuzzleOld = (wordCount) => {
-  return fetch(`https://puzzle.mead.io/puzzle?wordCount=${wordCount}`)
-    .then((response) => {
-      if (response.status === 200) {
-        return response.json();
-      } else {
-        throw new Error("Unable to fetch puzzel");
-      }
-    })
-    .then((data) => {
-      return data.puzzle;
-    });
-};
-
 const getContryName = async (contryCode) => {
   const response = await fetch("https://restcountries.com/v2/all");
 
   if (response.status === 200) {
     const data = await response.json();
 
-    const myCountry = data.find((country) => country.alpha2Code === contryCode);
-    return myCountry.name;
+    return data.find((country) => country.alpha2Code === contryCode);
   } else {
     throw new Error("An error occure");
   }
@@ -47,4 +32,11 @@ const getLocation = async () => {
   } else {
     throw new Error("An error occure");
   }
+};
+
+const getCurrentCountry = async () => {
+  const location = await getLocation();
+  const country = await getContryName(location.country);
+
+  return country;
 };
