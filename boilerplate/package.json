@@ -4,11 +4,18 @@
   "description": "",
   "main": "input.js",
   "scripts": {
-    "build": "babel src/index.js -o public/scripts/bundle.js --presets env --watch"
+    "dev-server": "webpack-dev-server --mode development",
+    "build": "webpack --mode production"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "babel-preset-env": "^1.6.1"
+    "babel-cli": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.6.1",
+    "live-server": "^1.2.2",
+    "webpack": "^4.17.1",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.3"
   }
 }

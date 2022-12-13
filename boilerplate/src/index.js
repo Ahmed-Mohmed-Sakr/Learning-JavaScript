@@ -1,13 +1,11 @@
-//babel input.js -o output.js
-//babel input.js -o output.js --presets env
-const name = "zainb";
+import otherSquare, { add, name } from "./utilities";
+import otherScream from "./scream";
+
+console.log("index.js");
+console.log(add(10, 12));
+
 console.log(name);
 
-class Hangman {
-  myMethod() {
-    return "testing";
-  }
-}
+console.log(otherScream("ahmed sakr"));
 
-const hungman = new Hangman();
-console.log(hungman.myMethod());
+console.log(otherSquare(12));
