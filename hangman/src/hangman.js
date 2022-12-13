@@ -57,3 +57,4 @@ class Hangman {
     return puzzel;
   }
 }
+export { Hangman as default };

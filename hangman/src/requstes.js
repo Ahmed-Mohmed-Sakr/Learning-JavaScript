@@ -38,3 +38,5 @@ const getCurrentCountry = async () => {
   const location = await getLocation();
   return getContryName(location.country);
 };
+
+export { getPuzzle as default };
